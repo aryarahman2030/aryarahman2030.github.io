@@ -1,6 +1,14 @@
-## Welcom to Wait But What
+## Welcome to Wait But What
 
-A lot of content out there about computer science, and software engineering is dry. And it’s scattered. And it’s filled with jargon. This blog is to cut all that out, and make software engineering accessible! This aims to come across like a friend who’s talking to you about software engineering colloquially, in plain English. (How many times have you come across what’s supposed to be introductory explanations but that are like “Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation.” You basically have to already know what Kubernetes is to read about what Kubernetes is…) The people who will get the most out of this are new grads who have started their jobs in software engineering, and software engineers in mid-career who have bits and pieces of knowledge but want to tie it all together. It’s someone who has some background already and is looking to get a more solid foundation and fill gaps in their knowledge.
+A lot of content out there about computer science, and software engineering is dry. And it’s scattered. And it’s filled with jargon. This blog is to cut all that out, and make software engineering accessible! This aims to come across like a friend who’s talking to you about software engineering colloquially, in plain English. 
+
+How many times have you come across what’s supposed to be introductory explanations but that are like 
+
+```Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation.```
+
+You basically have to already know what Kubernetes is to read about what Kubernetes is… 
+
+The people who will get the most out of this blog are new grads who have started their jobs in software engineering, and software engineers in mid-career who have bits and pieces of knowledge but want to tie it all together. It’s someone who has some background already and is looking to get a more solid foundation and fill gaps in their knowledge.
 
 Hopefully it’s a starting point to give you a breadth of knowledge and pique your interest so you can go out there into the scattered world of information, sift through some of the jargon and go deeper in areas where you’re interested.
 
