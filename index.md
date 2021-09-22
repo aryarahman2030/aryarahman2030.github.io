@@ -66,9 +66,11 @@ The inspiration for the content on this blog was that I wanted to put out conten
 
 The name for this blog was inspired by this blog: https://waitbutwhy.com/. A friend introduced me to this blog and I love it and have read every post. I wanted to bring the colloquial story-telling used on waitbutwhy to software engineering. Thanks Tim!
 Some of my favorite posts from that waitbutwhy:
+```
 [Artificial Intelligence](https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html)
 [Procrastinating](https://waitbutwhy.com/2013/10/why-procrastinators-procrastinate.html)
 [Fermi Paradox](https://waitbutwhy.com/2014/05/fermi-paradox.html)
+```
 
 Now onto the posts!!
 
