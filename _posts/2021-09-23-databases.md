@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Know Your Databases"
+title: "Know Your Databases"
 ---
 
 Databases are huge. You’ve gotta know them. 
