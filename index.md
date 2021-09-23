@@ -56,7 +56,7 @@ And last, but certainly not least, I wanted there to be software engineering con
 This blog is by no means a be-all-end-all. It’s just meant to give you a foundation, albeit a very informal one, so you are more confident (and hopefully inspired!) in going out and learning what’s out there on the wild west web. 
 
 #### Alternate names considered for the blog:
-noobsfornoobs.com (it's a play on geeksforgeeks.org, which you'll find often comes up as a top result on google when you're searching for something related to software engineering)
+noobsfornoobs.com (it's a play on geeksforgeeks.org, which you'll find often comes up as a top result on google when you're searching for something related to software engineering)\
 onestopshop.com (self-explanatory)
 
 ```
