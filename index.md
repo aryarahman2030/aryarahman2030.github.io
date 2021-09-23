@@ -34,7 +34,7 @@ I found that in the software engineering field, it’s relatively easy to pick u
 Each blog post here will aim to build a “tree” of knowledge for the topic that each post covers. I’ve split up each post into sections that are parts of the tree:  
 **Roots** - a background to place the topic into context\
 **Trunk** - core foundational knowledge - the need-to-know stuff\
-**Branches** - start of some domain-specific knowledge\
+**Branches** - start of some domain-specific knowledge
 
 And with that, hopefully you’ll be empowered to go out there and build your own **leaves** on whatever piques your interest.
 
@@ -74,7 +74,7 @@ Some of my favorite posts from that waitbutwhy:
 
 [Artificial Intelligence](https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html)\
 [Procrastinating](https://waitbutwhy.com/2013/10/why-procrastinators-procrastinate.html)\
-[Fermi Paradox](https://waitbutwhy.com/2014/05/fermi-paradox.html)\
+[Fermi Paradox](https://waitbutwhy.com/2014/05/fermi-paradox.html)
 
 
 Now onto the posts!!
