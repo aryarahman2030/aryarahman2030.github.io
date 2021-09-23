@@ -1,9 +1,6 @@
 ---
-layout: default
-comments: true
-category: database
-date: 2021-09-23 05:42:00 -0000
-title: "Know Your Databases"
+layout: post
+title:  "Know Your Databases"
 ---
 
 Databases are huge. You’ve gotta know them. 
