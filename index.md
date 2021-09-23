@@ -32,9 +32,9 @@ I’d much rather read or listen to a conversational exerpt about these things. 
 I found that in the software engineering field, it’s relatively easy to pick up a lot of pieces of information that’s spread around - the internet, various blogs, going through code. But unless you build the full picture, it’s hard to put the pieces together and form a full understanding and feel like you really know it. And it’s suprisingly hard to build that full picture. Metaphorically, the things you learn are like leaves, and if there’s nothing to connect it to, it either doesn’t stick in your memory or you feel like you don’t truly, intuitively understand it. 
 
 Each blog post here will aim to build a “tree” of knowledge for the topic that each post covers. I’ve split up each post into sections that are parts of the tree:  
-**Roots** - a background to place the topic into context. 
-**Trunk** - core foundational knowledge - the need-to-know stuff. 
-**Branches** - start of some domain-specific knowledge. 
+**Roots** - a background to place the topic into context\
+**Trunk** - core foundational knowledge - the need-to-know stuff\
+**Branches** - start of some domain-specific knowledge\
 
 And with that, hopefully you’ll be empowered to go out there and build your own **leaves** on whatever piques your interest.
 
@@ -72,9 +72,9 @@ The inspiration for the content on this blog was that I wanted to put out conten
 The name for this blog was inspired by this blog: https://waitbutwhy.com/. A friend introduced me to this blog and I love it and have read every post. I wanted to bring the colloquial story-telling used on waitbutwhy to software engineering. Thanks Tim!
 Some of my favorite posts from that waitbutwhy:
 
-[Artificial Intelligence](https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html). 
-[Procrastinating](https://waitbutwhy.com/2013/10/why-procrastinators-procrastinate.html). 
-[Fermi Paradox](https://waitbutwhy.com/2014/05/fermi-paradox.html). 
+[Artificial Intelligence](https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html)\
+[Procrastinating](https://waitbutwhy.com/2013/10/why-procrastinators-procrastinate.html)\
+[Fermi Paradox](https://waitbutwhy.com/2014/05/fermi-paradox.html)\
 
 
 Now onto the posts!!
