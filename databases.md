@@ -1,5 +1,5 @@
-layout: page
-title: "Know Your Databases"
+layout: page  
+title: "Know Your Databases"  
 permalink: /databases/
 
 Databases are huge. You’ve gotta know them. 
