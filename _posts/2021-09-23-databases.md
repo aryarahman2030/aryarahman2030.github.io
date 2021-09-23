@@ -1,8 +1,6 @@
 ---
 layout: post
 title: "Know Your Databases"
-date: '2021-09-23 13:25:00 -0400'
-categories: database
 ---
 
 Databases are huge. You’ve gotta know them. 
