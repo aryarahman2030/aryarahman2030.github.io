@@ -1,6 +1,5 @@
 ---
 layout: post
-theme: jekyll-theme-architect
 ---
 
 Databases are huge. You’ve gotta know them. 
