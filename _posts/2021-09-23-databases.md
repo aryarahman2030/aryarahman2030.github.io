@@ -1,3 +1,8 @@
+layout: post
+title: "Know Your Databases"
+date: 2021-09-23 05:42:00 -0000
+categories: sql nosql 
+
 Databases are huge. You’ve gotta know them. 
 They’re going to come up all the time, in your work and in your interviews. 
 If you learn them up front, you save yourself a lot of head scratching and confusion in the long run. 
