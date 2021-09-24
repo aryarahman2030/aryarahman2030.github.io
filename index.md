@@ -2,8 +2,6 @@
 
 A lot of content out there about computer science, and software engineering is dry. And it’s scattered. And it’s filled with jargon. This blog is to cut all that out, and make software engineering accessible! This aims to come across like a friend who’s talking to you about software engineering colloquially, in plain English. 
 
-[First Post]({% post_url 2021-09-23-databases %})
-
 How many times have you come across what’s supposed to be introductory explanations but that are like 
 
 ```Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation.```
