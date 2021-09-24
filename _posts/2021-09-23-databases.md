@@ -50,7 +50,7 @@ This will probably be the first type of database that you use, and is the one th
 
 That's basically it for SQL, so we'll go off on some tangents before moving onto NoSQL:
 
-**Twig - Database, Cluster, RDBMS**\
+>**Twig - Database, Cluster, RDBMS**\
 >>SQL databases are called relational databases because data ‘related’ to each other can be stored across multiple tables in the database and accessed together with ‘joins’ which has great performance in SQL databases (but not in NoSQL.. we’ll get into that later). Taking that one step further it’s often referred to as RDBMS which stands for Relational Database Management System. What’s the diffrence between databases and DBMS? They’re very closely related. DBMS is the actual system/software that you install on a computer that manages storing the data and retreiving it from the computer when it’s queried. A database is a set of tables. Technically it’s a “collection of data” This set of tables can be queried together through a ‘join’, for example. You can’t ‘join’ data from tables that are in different databases. For example, at a company you can have one database for product A and another database for product B, but they can both be in the same DBMS. In everyday work situations, I’ve also heard of ‘database’ being used when actually referring to DBMS. I may unintentionally do that in this post even. Then there’s ‘cluster’ which falls in the hierarchy between the two. One database can be stored in a few different machines (we’ll get into it with ‘sharding’ below). All of these parts together will be a ‘cluster’. Below is a helpful visualization.
 
 **Twig - SQL vs MySQL**
