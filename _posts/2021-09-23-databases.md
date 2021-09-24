@@ -53,7 +53,9 @@ That's basically it for SQL, so we'll go off on some tangents before moving onto
 
 >**Twig - Database, Cluster, RDBMS**
 >>SQL databases are called relational databases because data ‘related’ to each other can be stored across multiple tables in the database and accessed together with ‘joins’ which has great performance in SQL databases (but not in NoSQL.. we’ll get into that later). Taking that one step further it’s often referred to as RDBMS which stands for Relational Database Management System. 
+
 >>What’s the diffrence between databases and DBMS? They’re very closely related. DBMS is the actual system/software that you install on a computer that manages storing the data and retreiving it from the computer when it’s queried. A database is a set of tables. Technically it’s a “collection of data” This set of tables can be queried together through a ‘join’, for example. You can’t ‘join’ data from tables that are in different databases. For example, at a company you can have one database for product A and another database for product B, but they can both be in the same DBMS. In everyday work situations, I’ve also heard of ‘database’ being used when actually referring to DBMS. I may unintentionally do that in this post even. 
+
 >>Then there’s ‘cluster’ which falls in the hierarchy between the two. The data in one database can be stored in a few different machines (we’ll get into it with ‘sharding’ below). All of these parts together will be a ‘cluster’. Below is a helpful visualization.
 
 >**Twig - SQL vs MySQL**
@@ -61,7 +63,9 @@ That's basically it for SQL, so we'll go off on some tangents before moving onto
 
 >**Twig - Scaling**
 >>Where relational databases run into trouble is in scaling. Relational databases are vertically scalable, but they are not horizontally scalable. What this means is that you can scale it by adding more capacity like more disk space, compute and memory, but you can’t add more machines and split up the data across those machines. That’s horizontal scaling. 
+
 >>Why does it matter how you scale? There’s tradeoffs between the two. Vertical scaling can be limited by what the largest machine you could possibly get is. Or what the maximum memory that you can get in one machine. That can get really expensive. So once you’ve used the largest machine with the most memory, you’ve hit a dead-end in terms of scaling even more. Horizontal scaling gets you a lot more flexibility with how much you can scale. You will have a set of machines each containing a portion of the data called “shard”. And it’s comparatively cheaper- you can get a whole bunch of cheap machines and split your data across them.  The overhead here comes from having another tool to coordinate this split-up data, and know where to direct incoming queries (todo we'll have another post about this). 
+
 >>But relational databases don’t lend themselves to horizontal scaling because there’s no clear way to split up the data under-the-hood, and we would want to store them in one machine to be performant for the types of queries that relational databases get - one that uses joins. SQL queries give you a lot of flexibility in what kind of queries you execute to the point where you don’t know which data will be fetched from which table and combined in which way until you get the query.  So you can’t optimize on how you store the data across multiple machines to make sure you’re not having to query all the machines in a sub-optimal way. But if you store it in a single machine, you can still tune how to store the data to optimize how fast the lookup is (like indexing user_id example mentioned above).
 
 So tl’dr - you can use relational tables in a lot of cases, will get great performance, it’s very commonly used and one of the oldest types of databases. With the exception that you expect your data to grow fast and you’ll have so much data that it’ll be hard to keep in a single machine.
