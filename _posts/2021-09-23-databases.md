@@ -1,6 +1,7 @@
 ---
 layout: post
 ---
+# Databases: SQL and NoSQL
 
 Databases are huge. You’ve gotta know them. 
 They’re going to come up all the time, in your work and in your interviews. 
