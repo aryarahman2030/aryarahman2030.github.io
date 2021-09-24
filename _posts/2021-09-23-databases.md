@@ -95,9 +95,9 @@ This, to me at least, is one of the more obscure not-yet-widely-used nosql datab
 
 	Neo4j, ArangoDB and OrientDB
 
-	Object Databases
-This is also right up (down?) there with Graph Database where it’s not all that popular. I personally have never used it. I assume it is what is sounds like.
-Todo: madhu
+#### 	Object Databases
+This is also right up there with Graph Database where it’s not all that popular. I personally have never used it. I assume it is what is sounds like.
+Todo
 	Wakanda, Object Store. 
 
 
