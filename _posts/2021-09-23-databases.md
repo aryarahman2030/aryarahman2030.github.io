@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Databases: SQL and NoSQL
-description: Key-Value, Document, Column-Oriented, Graph, Object. MongoDB, Memcached, Redis, Cassandra, Redshift, Snowflake
 ---
 
 Databases are huge. You’ve gotta know them. 
