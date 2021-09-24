@@ -74,6 +74,7 @@ NoSQL is a broad umbrella and there’s many different types of databases within
 
 #### Key-Value Store
 Let’s start with key-value. This is pretty simple! Almost like storing a hash table. It uses a hash table to store unique keys and points to a column which doesn’t need to have a specific type. It has great behavior since it’s essentially a constant time lookup, and scales easily. It can be used anywhere, where you need to do a simple lookup with a key, for example storing shopping cart data, or user preferences. It can also be used like a long-term, non-volatile cache. 
+
 	redid, memcache, riak, BigTable, DyamoDB, Cassandra
 
 #### 	Document Store
@@ -88,6 +89,7 @@ Who uses Firestore? New York Times, The Economist, Instacart, Twitch
 
 #### 	Column-Oriented Stores
 This is probably the most similar to your relational SQL database. On the surface it looks like SQL to the user, but under the hood the data is stored differently. You guessed it, it’s stored by columns rather than by rows. This is mostly used for analytics purposes where you’re aggregating a small number of columns over a lot of rows. todo: sql or nosql?
+
 	Cassandra, Hadoop Hbase, Redshift, Clickhouse, Snowflake
 
 #### 	Graph Databases
@@ -98,6 +100,7 @@ This, to me at least, is one of the more obscure not-yet-widely-used nosql datab
 #### 	Object Databases
 This is also right up there with Graph Database where it’s not all that popular. I personally have never used it. I assume it is what is sounds like.
 Todo
+
 	Wakanda, Object Store. 
 
 
