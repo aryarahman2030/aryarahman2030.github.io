@@ -1,7 +1,8 @@
 ---
 layout: post
+title: Databases: SQL and NoSQL
+description: Key-Value, Document, Column-Oriented, Graph, Object. MongoDB, Memcached, Redis, Cassandra, Redshift, Snowflake
 ---
-# Databases: SQL and NoSQL
 
 Databases are huge. You’ve gotta know them. 
 They’re going to come up all the time, in your work and in your interviews. 
@@ -82,7 +83,7 @@ Let’s start with key-value. This is pretty simple! Almost like storing a hash 
 
 	redid, memcache, riak, BigTable, DyamoDB, Cassandra
 
-#### 	Document Store
+#### Document Store
 This is typically what I think of when I think NoSql. You can almost think of each entry in the database as a json, that has nested fields. Then the query is also a json specifying that the results should be filtered based on which keys match the values. It’s perfect for things like storing a blog post, comments, tags, etc, all in one document. What it’s not good for is for complex queries or queries needing joins across multiple tables. You kind of want your document to contain all the information you need. Otherwise you’ll have to make another query to get the additional information since you can’t make joins.  Things like blogging platforms will require a simple query to access it and not really any complex operations. You can fetch the entire blog page in a simple query. Companies like Facebook and Amazon have perfect use-cases for this. 
 You might’ve heard of MongoDB. It was only founded in 2007 but it’s become very popular very quickly. It’s your classic document-based database. You give it some key fields in a json to filter down your results, and you have yoru results. It also has all the perks of nosql like high availability and sharding for horizontal scaling.
 
@@ -93,17 +94,17 @@ Who uses Firestore? New York Times, The Economist, Instacart, Twitch. todo fires
 
 	mongoldb, couchdb, elasticsearch
 
-#### 	Column-Oriented Stores
+#### Column-Oriented Stores
 This is probably the most similar to your relational SQL database. On the surface it looks like SQL to the user, but under the hood the data is stored differently. You guessed it, it’s stored by columns rather than by rows. This is mostly used for analytics purposes where you’re aggregating a small number of columns over a lot of rows. todo: sql or nosql?
 
 	Cassandra, Hadoop Hbase, Redshift, Clickhouse, Snowflake
 
-#### 	Graph Databases
+#### Graph Databases
 This, to me at least, is one of the more obscure not-yet-widely-used nosql databases. Apparently it can be used for social networks, fraud detection, search, etc. It’s built to depict relationships (edges) between datapoint (nodes). Like how your Facebook friends are connected and what they’ve liked, what pages or events they’re on, and so on and so forth. Neo4j is apparently the most popular, and apparently companies like Lyft, Airbnb and Ebay use it. 
 
 	Neo4j, ArangoDB and OrientDB
 
-#### 	Object Databases
+#### Object Databases
 This is also right up there with Graph Database where it’s not all that popular. I personally have never used it. I assume it is what is sounds like.
 Todo
 
