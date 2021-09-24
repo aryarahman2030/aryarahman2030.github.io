@@ -38,3 +38,60 @@ That’s the breadth of the types of data and then there’s the aspect of depth
 What are we doing with so much data,  you ask? If you do a google search to find an article from 10 years ago, that’s going to be need to be stored in a database that can be accessed and returned to you. 
 Data is also the new oil in the sense that, your personal data and data about your behavior and actions on the internet are invaluable to companies that can then use all this data to monetize you and show you the best ads. Or in the case of self-driving cars, analyze driving patterns and use machine learning to continue to learn to drive better. The challenges can be like finding a needle in a haystack (e.g. google search), or like dumping out the whole haystack (using your behavioral history to show you ads). 
 We need efficient databases and efficient design of datastore to make accessing different types of data in all these different ways performant.
+
+## Trunk:
+
+At the highest level, there’s just two types - **Sql** and **NoSql**. So let’s get to it!
+
+### SQL
+I’m assuming you already have some familiarity with SQL databases. In a majority of cases and companies, this is what is used. A majority of companies can get by using primarily sql databases. Large companies with products that most of the world uses (facebook, amazon, google) have had to turn to nosql because of the need to scale and remain performant.  
+
+This will probably be the first type of database that you use, and is the one that you’ll come across most frequently. It’s your standard relational database. It’s tried and tested. It’s best for when you access data based on a few fields, like a user_id, that you can index and make lookup fast. And it’s best for storing text - strings or numerical values. And it’s best for when you need to join with other tables on certain fields. If you need to store an image or video, your best bet would be to store it elsewhere and store the url to access that in the database.
+
+
+**Twig - Database, Cluster, RDBMS**\
+SQL databases are called relational databases because data ‘related’ to each other can be stored across multiple tables in the database and accessed together with ‘joins’ which has great performance in SQL databases (but not in NoSQL.. we’ll get into that later). Taking that one step further it’s often referred to as RDBMS which stands for Relational Database Management System. What’s the diffrence between databases and DBMS? They’re very closely related. DBMS is the actual system/software that you install on a computer that manages storing the data and retreiving it from the computer when it’s queried. A database is a set of tables. Technically it’s a “collection of data” This set of tables can be queried together through a ‘join’, for example. You can’t ‘join’ data from tables that are in different databases. For example, at a company you can have one database for product A and another database for product B, but they can both be in the same DBMS. In everyday work situations, I’ve also heard of ‘database’ being used when actually referring to DBMS. I may unintentionally do that in this post even. Then there’s ‘cluster’ which falls in the hierarchy between the two. One database can be stored in a few different machines (we’ll get into it with ‘sharding’ below). All of these parts together will be a ‘cluster’. Below is a helpful visualization.
+
+Some more terminology and clarifying points - SQL is the language, and there are many databases that use “dialects” of SQL to query a database. The most popular types of SQL DBMS are Oracle, MySQL, Microsoft SQL Server, PosttgreSQL. Each one uses SQL and has some advanced functionality built on top of SQL, but has to be SQL compliant. <todo> I’ll stop here for SQL, unless you’re at a startup that is just setting up their SQL database, you won’t find the details of SQL databases all that relevant. A lot of databases oriented around analytics workloads are also Relational and that’s a whole other can of works so we’ll branch off to another blog post just for the world of analytical databases and data processing <todo>.
+
+**Twig - Scaling**\
+Where relational databases run into trouble is in scaling. Relational databases are vertically scalable, but they are not horizontally scalable. What this means is that you can scale it by adding more capacity like more disk space, compute and memory, but you can’t add more machines and split up the data across those machines. That’s horizontal scaling. Why does it matter how you scale? There’s tradeoffs between the two. Vertical scaling can be limited by what the largest machine you could possibly get is. Or what the maximum memory that you can get in one machine. That can get really expensive. So once you’ve used the largest machine with the most memory, you’ve hit a dead-end in terms of scaling even more. Horizontal scaling gets you a lot more flexibility with how much you can scale. You will have a set of machines each containing a portion of the data called “shard”. And it’s comparatively cheaper, you can get a whole bunch of cheap machines and split your data across them.  The overhead here comes from having another tool to coordinate this split-up data, and know where to direct incoming queries. But relational databases don’t lend themselves to horizontal scaling because there’s no clear way to split up the data under-the-hood, and we would want to store them in one machine to be performant for the types of queries that relational databases get (e.g. uniqueness). todo - remove the next sentence, and why relational dbs can’t shard. If you access multiple shards for a query, it risks being slow since now you need to make a network hop to get data from multiple machines. SQL queries give you a lot of flexibility in what kind of queries you execute to the point where you don’t know which data will be fetched until you get the query, so you can’t optimize on how you store the data across multiple machines to make sure you’re not having to query all the machines. But you can still tune how to store the data within your single machine, to optimize how fast the lookup is (like indexing user_id example mentioned above).
+
+So tl’dr - you can use relational tables in a lot of cases, will get great performance, it’s very commonly used and one of the oldest types of databases. With the exception that you expect your data to grow fast and you’ll have so much data that it’ll be hard to keep in a single machine.
+
+Now to the interesting nosql databases!
+
+### NoSQL
+Naturally, now that we’ve talked about SQL, the next topic to broach is NoSQL. NoSQL gives you a lot of flexibility, both in terms of scaling and in terms of the data structure. Those are it’s two biggest selling points. NoSQL databases (some of them atleast..) don’t  have a specific table schema. For example, in some types of nosql databases, you can start off storing data that’s user_id and first_name. Then halfway through you can decide to start storing last_name too, and so on. How does this work? Because you have to be more careful when you’re querying that data. The difference between SQL and NoSQL is often referred to as “schema on write” vs “schema on read”. Because of this, when the type of your data changes in some way, you can continue using the same thing and just modify how you’re reading it to accommodate the new format. Whereas in SQL something like this may require a big migration process. 
+NoSQL can be scaled horizontally. This means you can use cheap machines and can have your data size grow exponentially. 
+NoSQL is a broad umbrella and there’s many different types of databases within this umbrella. We’ll take a look at each:
+
+#### Key-Value Store
+Let’s start with key-value. This is pretty simple! Almost like storing a hash table. It uses a hash table to store unique keys and points to a column which doesn’t need to have a specific type. It has great behavior since it’s essentially a constant time lookup, and scales easily. It can be used anywhere, where you need to do a simple lookup with a key, for example storing shopping cart data, or user preferences. It can also be used like a long-term, non-volatile cache. 
+	redid, memcache, riak, BigTable, DyamoDB, Cassandra
+
+#### 	Document Store
+This is similar to key-value store, the difference is that the value is structured. This is typically what I think of when I think NoSql. For example, you can almost think of each entry in the database as a json, that has nested fields. Then the query is also a json specifying that the results should be filtered based on which keys match the values. It’s perfect for things like storing a blog post, comments, tags, etc, all in one document. What it’s not good for is for complex queries or queries needing joins across multiple tables. You kind of want your document to contain all the information you need. Otherwise you’ll have to make another query to get the additional information since you can’t make joins.  Things like blogging platforms will require a simple query to access it and not really any complex operations. You can fetch the entire blog page in a simple query. Companies like Facebook and Amazon have perfect use-cases for this. 
+You might’ve heard of MongoDB. It was only founded in 2007 but it’s become very popular very quickly. It’s your classic document-based database. You give it some key fields in a json to filter down your results, and you have yoru results. It also has all the perks of nosql like high availability and sharding for horizontal scaling.
+
+Who uses MongoDB? Google, Cisco, Facebook, Uber, Lyft, Intuit
+If Amazon beat out google for key-value database, then Google beats Amazon for Document database. Google’s Firesbase is a lot more popular than DocumentDb.
+Who uses Firestore? New York Times, The Economist, Instacart, Twitch
+
+	mongoldb, couchdb, elasticsearch
+
+#### 	Column-Oriented Stores
+This is probably the most similar to your relational SQL database. On the surface it looks like SQL to the user, but under the hood the data is stored differently. You guessed it, it’s stored by columns rather than by rows. This is mostly used for analytics purposes where you’re aggregating a small number of columns over a lot of rows. todo: sql or nosql?
+	Cassandra, Hadoop Hbase, Redshift, Clickhouse, Snowflake
+
+#### 	Graph Databases
+This, to me at least, is one of the more obscure not-yet-widely-used nosql databases. Apparently it can be used for social networks, fraud detection, search, etc. It’s built to depict relationships (edges) between datapoint (nodes). Like how your Facebook friends are connected and what they’ve liked, what pages or events they’re on, and so on and so forth. Neo4j is apparently the most popular, and apparently companies like Lyft, Airbnb and Ebay use it. 
+
+	Neo4j, ArangoDB and OrientDB
+
+	Object Databases
+This is also right up (down?) there with Graph Database where it’s not all that popular. I personally have never used it. I assume it is what is sounds like.
+Todo: madhu
+	Wakanda, Object Store. 
+
+
