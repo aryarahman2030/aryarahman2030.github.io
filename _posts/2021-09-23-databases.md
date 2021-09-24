@@ -14,10 +14,10 @@ As an added bonus, you’ll also need to know a lot about databases to ace your 
 What are the different types of databases and why do we need them?
 
 **Trunk:**\
-Different types of databases, and what each one is good for
+General overview of different types of databases, and a list of widely-used databases of that type.
 
 **Branch:**\
-More details and what are industry-standard frequently used database systems?
+More details on each type of database
 
 **Leaves:**\
 Build Your Own Leaves
@@ -78,12 +78,13 @@ Let’s start with key-value. This is pretty simple! Almost like storing a hash 
 	redid, memcache, riak, BigTable, DyamoDB, Cassandra
 
 #### 	Document Store
-This is similar to key-value store, the difference is that the value is structured. This is typically what I think of when I think NoSql. For example, you can almost think of each entry in the database as a json, that has nested fields. Then the query is also a json specifying that the results should be filtered based on which keys match the values. It’s perfect for things like storing a blog post, comments, tags, etc, all in one document. What it’s not good for is for complex queries or queries needing joins across multiple tables. You kind of want your document to contain all the information you need. Otherwise you’ll have to make another query to get the additional information since you can’t make joins.  Things like blogging platforms will require a simple query to access it and not really any complex operations. You can fetch the entire blog page in a simple query. Companies like Facebook and Amazon have perfect use-cases for this. 
+This is typically what I think of when I think NoSql. You can almost think of each entry in the database as a json, that has nested fields. Then the query is also a json specifying that the results should be filtered based on which keys match the values. It’s perfect for things like storing a blog post, comments, tags, etc, all in one document. What it’s not good for is for complex queries or queries needing joins across multiple tables. You kind of want your document to contain all the information you need. Otherwise you’ll have to make another query to get the additional information since you can’t make joins.  Things like blogging platforms will require a simple query to access it and not really any complex operations. You can fetch the entire blog page in a simple query. Companies like Facebook and Amazon have perfect use-cases for this. 
 You might’ve heard of MongoDB. It was only founded in 2007 but it’s become very popular very quickly. It’s your classic document-based database. You give it some key fields in a json to filter down your results, and you have yoru results. It also has all the perks of nosql like high availability and sharding for horizontal scaling.
 
 Who uses MongoDB? Google, Cisco, Facebook, Uber, Lyft, Intuit
+
 If Amazon beat out google for key-value database, then Google beats Amazon for Document database. Google’s Firesbase is a lot more popular than DocumentDb.
-Who uses Firestore? New York Times, The Economist, Instacart, Twitch
+Who uses Firestore? New York Times, The Economist, Instacart, Twitch. todo firestore vs firebase
 
 	mongoldb, couchdb, elasticsearch
 
