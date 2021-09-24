@@ -1,6 +1,5 @@
 ---
 layout: post
-title: Databases: SQL and NoSQL
 ---
 
 Databases are huge. You’ve gotta know them. 
