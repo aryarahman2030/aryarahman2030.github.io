@@ -116,8 +116,9 @@ Key Value store can be further split into in-memory vs on-disk (classic) databas
 
 #### In-Memory
 Redis and Memcached are the two most popular in-memory key-value databases. Both are in-memory databases (in contrast to the other databases mentioned here which are stored on disk) which are most popular for being used as caches. For example, if you’re trying to load your amazon shopping cart, during the first load, that request may be served from the database, looking up your cart_id, and getting the response of items in the cart. That key (cart_id) and value (list of items) will be stored in memory in essentially a hashtable. The next time you load your cart it can be served from the in-memory key-value cache. It’s easy to use, essentially like a HashTable, and supports a lot of different dataypes. Of course, the devil is in the details here with invalidating or modifying the cache when the entries change, but I believe <todo> this is largely handled by the software. Some things to consider when evaluating which to use are: whether it can perist data to disk, what datastructures and languages are supported, what features it has, whether it’s thread-safe, support for sharding and distribution and so on. Both Redis and Memcached are open-source.
-Who uses Redis? Snapchat, Github, Twitter, Pinterest, Stack Overflow
-Who uses Memcached? Facebook, Apple
+
+**Who uses Redis?** Snapchat, Github, Twitter, Pinterest, Stack Overflow
+**Who uses Memcached?** Facebook, Apple
 
 #### On-Disk
 The Key Value Stores that are stored in disk are also often referred to as wide-column. I’ve seen it be used for analytics use-cases. It stores data for specific use cases. You can think of it as being a Map<Map<Obj, Value>>. For example, if I know I’m going to be querying shows has been watched in a certain streaming service in a certain country on a particular date, then I might store my data in BigTable, a wide-column key-value store, like this:
@@ -133,7 +134,7 @@ DynamoDb is Amazon’s key-value database, Google has it’s own called LevelDB 
 Then there’s the file systems. Amazon has a file system storage in the cloud called S3 and Google has a file system storage in the cloud called GCS: Google Cloud Storage. It is essentially just like the file system on your computer but is stored in Amazon/Google’s servers. It can be considered a key-value store because the key will be the filename and the value will be the contents of the file. The most common use cases I’ve seen for this are to store images, and then to store the url for those images in some other database, where yoou can retrieve the url if you have the image_id, for example. One drawback is that accessing this could be a bit on the slower side. An generally these files will be read-only. On the other hand, this type of storage is very cheap. So it’s often used to store data that’s rarely ever accessed but need to be kept around just-in-case. I’ve read that amazon stores really old purchase history in s3 files. They can be read-only because the order can no longer be changed. And they can be kind of slow because it may be rare for someone to be accessing data that is 2 years old.
 The other use case for file systems is in analytics use cases, which we will explore in more detail in another blog post. 
 
-	**Customers:** Spotify, WePay, Plaid
+**Customers:** Spotify, WePay, Plaid
 	
 ## Document
 
@@ -162,7 +163,7 @@ You may be thinking, it seems restrictive to not be able to do joins. How many u
 	
 Here’s a personal tidbit about my experience with a Document based database: **ElasticSearch**. The use case here was that we were building a Search tool for many business’ websites, and we used ElasticSearch to store an entry every time a user searched for something. We’d store the search query, the results that came up, what the user viewed and clicked on, etc. Then we’d use this data to show the business analytics behind this, and recreate the search results that the user saw. Food for thought.
 	
-**customers:** Forbes, Toyota, KPMG, Verizon, Cisco, Google 
+**Customers:** Forbes, Toyota, KPMG, Verizon, Cisco, Google 
 
 ## Column-Oriented Stores
 	
@@ -187,4 +188,4 @@ Neo4j seems to be the popular database that has “native” graph storage. I gu
 
 If you’re interested in any of these in particular, it can’t hurt to build your own leaves (and honestly fill out the rest of this branch) on your own!
 
-Customers of Neo4j: Lyft, airbnb, adobe, caterpillar, volvo 
+**Customers of Neo4j:** Lyft, airbnb, adobe, caterpillar, volvo 
