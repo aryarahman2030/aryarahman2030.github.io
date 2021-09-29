@@ -36,6 +36,8 @@ Each blog post here will aim to build a “tree” of knowledge for the topic th
 
 And with that, hopefully you’ll be empowered to go out there and build your own **leaves** on whatever piques your interest.
 
+I'll leave this disclaimer here: I really made this to be conversational blog about software engineering topics. I may be slightly inaccurate here or there, as one might be when they're just colloquially talking to you about a complicated topic. I've just written down what I've come across and what I know in a way that's hopefully accessible and easy to digest. So please don't read this blog with a critical eye, it's simply something that I'll hope you get a lot out of. 
+
 ### How things may generally go in your early career
 When you start working as a software enginner you’re usually thrown in to do a task, then another task, then another. You slowly build up a picture of your team’s systems.  Generally noone really takes the time to explain the whole system to you. No one puts the system into context. Noone encourages you to learn about industry standards. Maybe you think you don’t need to learn that stuff, you’re doing great at your job as it is. And is all that stuff really going to be directly relevant or helpful for your day-to-day job? I don’t see how it could be, you might think. If you know how your systems are set up, you’re already an expert, and you’re day to day is more based on that than this stuff. And your peers are focused on the team’s systems and day-to-day coding. You don’t forsee a situation where you or your peers will put this knowledge to use practically. 
 
