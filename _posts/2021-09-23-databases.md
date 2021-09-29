@@ -86,7 +86,7 @@ This is typically what I think of when I think NoSql. You can almost think of ea
 
 What it’s not good for is for complex queries or queries needing joins across multiple tables. You kind of want your document to contain *all* the information you need. Otherwise you’ll have to make another query to get the additional information since you *can’t join* with other tables.  
 
-Things like blogging platforms could be a perfect use-case for this - you can use a single query to pull up a document that contains the blog post, comments, tags, etc. No other complex operations. You can fetch the entire blog page in a simple query. Companies like Facebook and Amazon have perfect use-cases for this. Facebook could store all the contents of your wall in one document: urls to your featured photos, posts and likes, etc. And it can just store your most recent 10 posts that you see when the page loads, then when you scroll, it can make another query to fetch more post. Those additional posts could be stored in the same database as a different document, or it could be stored somewhere else that has cheaper storage but takes longer to query. Because how many times will you be scrolling through old posts anyway. These are the types of considerations you might have while building out a product and deciding which databases to use for which data. 
+Things like blogging platforms could be a perfect use-case for this - you can use a single query to pull up a document that contains the blog post, comments, tags, etc. No other complex operations. You can fetch the entire blog page in a simple query. 
 
 	mongoldb, couchdb, elasticsearch
 
@@ -161,7 +161,9 @@ And the most simple query to retrieve this document:
 
 ```db.post.find({“Title”: “Know Your Databases”})```
 	
-You may be thinking, it seems restrictive to not be able to do joins. How many use cases could there be for something like this that also needs to take advantage of the ability to scale a lot? Well Facebook could be an example - I could imagine all the contents of your wall being in a document. And multiply that by 2 billion users.
+You may be thinking, it seems restrictive to not be able to do joins. How many use cases could there be for something like this that also needs to take advantage of the ability to scale a lot? Companies like Facebook and Amazon have perfect use-cases for this. Facebook could store the contents of your wall in one document: urls to your featured photos, posts and likes, etc. And multiply that by 2 billion users. 
+	
+As an optimization, it could store your most recent 10 posts that you see when the page loads, then when you scroll, it can make another query to fetch more post. Those additional posts could be stored in the same database as a different document, or it could be stored somewhere else that has cheaper storage but takes longer to query. Because it's not often you'll be scrolling through old posts, so you could choose to store those old posts somewhere else. These are the types of considerations you might have while building out a product and deciding which databases to use for which data. 
 	
 Here’s a personal tidbit about my experience with a Document based database: **ElasticSearch**. The use case here was that we were building a Search tool for many business’ websites, and we used ElasticSearch to store an entry every time a user searched for something. We’d store the search query, the results that came up, what the user viewed and clicked on, etc. Then we’d use this data to show the business analytics behind this, and recreate the search results that the user saw. Food for thought.
 	
@@ -170,7 +172,9 @@ Here’s a personal tidbit about my experience with a Document based database: *
 ## Column-Oriented Stores
 	
 This type of database is a specialized version of SQL. It’s optimized to query a small set of columns but across a large amount of rows. For example, if I want to query for the number of times 'The Office' was watched every day for the past five years in a table that had an entry for each date and the columns were the number of watches, unique viewers, favorited, etc. A column oriented store has great performance for this because the way this type of database stores data is it stores the columns together on disk. So we could read one chunk from the disk and have all our data, whereas in a regular SQL database it might have to read data that’s stored spread across the disk. 
+	
 You might even hear this type of database be referred to as a Warehouse, we’ll have a separate blog post for just analytical databases (todo). One major thing to watch for in this databases, from my experience, is whether it’s a *managed* database or not. What does that mean? Whether things like scaling, sharding, partitioning, optimizations and maintenance are taken care of under the hood, or if you’ll spend a lot of time manually tuning your database, getting extra machines when the data grows, etc. For example, I’ve used Redshift from Amazon which is managed, where I basically just had to worry about writing and reading data, and I’ve used Clickhouse where we had to pay close attention to sharding and scaling.
+	
 A little disclaimer here that column-oriented databases are actually somewhere in between nosql and sql, IMO. They use PostgreSQL, which is a dialect of SQL but it may not enforce all of the constraints needed to make it relational. (Todo)
 
 Notice again that column-oriented datastore are totally different from the wide-column stores we talked about above. 
