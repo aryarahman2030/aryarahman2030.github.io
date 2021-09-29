@@ -1,6 +1,4 @@
----
-title: software engineering blog
----
+
 A lot of content out there about computer science, and software engineering is dry. And it’s scattered. And it’s filled with jargon. This blog is to cut all that out, and make software engineering accessible! This aims to come across like a friend who’s talking to you about software engineering colloquially, in plain English. 
 
 How many times have you come across what’s supposed to be introductory explanations but that are like 
