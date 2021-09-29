@@ -82,13 +82,11 @@ Let’s start with key-value. This is pretty simple! Almost like storing a hash 
 	redid, memcache, riak, BigTable, DyamoDB, Cassandra
 
 #### Document Store
-This is typically what I think of when I think NoSql. You can almost think of each entry in the database as a json, that has nested fields. Then the query is also a json specifying that the results should be filtered based on which keys match the values. It’s perfect for things like storing a blog post, comments, tags, etc, all in one document. What it’s not good for is for complex queries or queries needing joins across multiple tables. You kind of want your document to contain all the information you need. Otherwise you’ll have to make another query to get the additional information since you can’t make joins.  Things like blogging platforms will require a simple query to access it and not really any complex operations. You can fetch the entire blog page in a simple query. Companies like Facebook and Amazon have perfect use-cases for this. 
-You might’ve heard of MongoDB. It was only founded in 2007 but it’s become very popular very quickly. It’s your classic document-based database. You give it some key fields in a json to filter down your results, and you have yoru results. It also has all the perks of nosql like high availability and sharding for horizontal scaling.
+This is typically what I think of when I think NoSql. You can almost think of each *entry* in the database as a *json* that has nested fields. Then the *query* is also a *json* specifying the key-value pairs that the results should be filtered on. It’s perfect for things like storing a blog post, comments, tags, etc, all in one document. 
 
-Who uses MongoDB? Google, Cisco, Facebook, Uber, Lyft, Intuit
+What it’s not good for is for complex queries or queries needing joins across multiple tables. You kind of want your document to contain *all* the information you need. Otherwise you’ll have to make another query to get the additional information since you *can’t join* with other tables.  
 
-If Amazon beat out google for key-value database, then Google beats Amazon for Document database. Google’s Firesbase is a lot more popular than DocumentDb.
-Who uses Firestore? New York Times, The Economist, Instacart, Twitch. todo firestore vs firebase
+Things like blogging platforms could be a perfect use-case for this - you can use a single query to pull up a document that contains the blog post, comments, tags, etc. No other complex operations. You can fetch the entire blog page in a simple query. Companies like Facebook and Amazon have perfect use-cases for this. Facebook could store all the contents of your wall in one document: urls to your featured photos, posts and likes, etc. And it can just store your most recent 10 posts that you see when the page loads, then when you scroll, it can make another query to fetch more post. Those additional posts could be stored in the same database as a different document, or it could be stored somewhere else that has cheaper storage but takes longer to query. Because how many times will you be scrolling through old posts anyway. These are the types of considerations you might have while building out a product and deciding which databases to use for which data. 
 
 	mongoldb, couchdb, elasticsearch
 
@@ -121,6 +119,7 @@ Key Value store can be further split into in-memory vs on-disk (classic) databas
 **Who uses Memcached?** Facebook, Apple
 
 #### On-Disk
+
 The Key Value Stores that are stored in disk are also often referred to as **wide-column**. I’ve seen it be used for analytics use-cases. It stores data for specific use cases. You can think of it as being a Map<Map<Obj, Value>>. For example, if I know I’m going to be querying shows has been watched in a certain streaming service in a certain country on a particular date, then I might store my data in BigTable, a wide-column key-value store, like this:
 	
 ```Date —> {Show, StreamingService, Country} —> Value```
@@ -139,7 +138,9 @@ The other use case for file systems is in analytics use cases, which we will exp
 ## Document
 
 ### MongoDB
-
+	
+You might’ve heard of **MongoDB**. It was only founded in 2007 but it’s become very popular very quickly. It’s your classic document-based database. You give it some key-value fields in a json to filter down your results, and you have your results. It also has all the perks of nosql like high availability and sharding for horizontal scaling.
+	
 At it’s most basic, an inserting an entry into a mongoDB table for blogs posts could look like:
 
 ```
