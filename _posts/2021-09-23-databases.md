@@ -35,7 +35,7 @@ As you probably noticed, there are many different types of data (photos, videos,
 
 That’s the breadth of the types of data and then there’s the aspect of depth. When I say depth, I mean the scale of data that we now generate and store. We generate *2.5 quintillion* bytes of data every day. That’s 1000^18 bytes everyday. And the rate at which we generate data is accelerating. Just in the last two years we generated 90% of the total data. And as we connect more and more devices to the internet (refrigerators, cars, lightbulbs even) and as we move on to 5G to make the speed of data transfer even faster, the amount of data generated is just going to explode. 
 
-What are we doing with so much data,  you ask? If you do a google search to find an article from 10 years ago, that’s going to be need to be stored in a database that can be accessed and returned to you. 
+What are we doing with so much data,  you ask? If you do a google search to find an article from 10 years ago, that’s going to need to be stored in a database that can be accessed and returned to you. 
 Data is also the new oil in the sense that, your personal data and data about your behavior and actions on the internet are invaluable to companies that can then use all this data to monetize you and show you the best ads. Or in the case of self-driving cars, analyze driving patterns and use machine learning to continue to learn to drive better. The challenges can be like finding a needle in a haystack (e.g. google search), or like dumping out the whole haystack (using your behavioral history to show you ads). 
 We need efficient databases and efficient design of datastore to make accessing different types of data in all these different ways performant.
 
