@@ -194,7 +194,7 @@ Notice again that column-oriented datastore are totally different from the wide-
 	
 ## Graph Database
 
-First, lets talk about the difference between **GraphQL** and **graph databases**. GraphQL itself is not a database like MySQL. It’s a server with an API that takes in a request in a specific form (kind of like json). You can think of the format that it takes in as it’s query language, kind of like how SQL is a query language. While SQL will look like this:
+First, lets talk about the difference between **GraphQL** and **graph databases**. GraphQL itself is not a database like MySQL. It’s a **server with an API** that takes in a request in a specific form (kind of like json). You can think of the format that it takes in as it’s query language, kind of like how SQL is a query language. While SQL will look like this:
 	
 ```
 SELECT <columns> FROM <table>
