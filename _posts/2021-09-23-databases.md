@@ -6,29 +6,27 @@ Databases are huge. You’ve gotta know them.
 They’re going to come up all the time, in your work and in your interviews. 
 If you learn them up front, you save yourself a lot of head scratching and confusion in the long run. 
 
-Throughout the span of your career, you’ll come across all kinds of names like `Elasticsearch` and 	`Redshift`. 
+Throughout the span of your career, you’ll come across all kinds of names like `Elasticsearch` and `Redshift`. 
 If you *Know Your Databases* you’ll be able to categorize them from the get-go, instead of being in the dark and trying to find your way around. 
 As an added bonus, you’ll also need to know a lot about databases to ace your systems design interviews, and based on how you come across here has a big impact on what leveling you get placed in at the company, and how experienced you come off. 
 
+
 ----
 ****
-
-**Roots:**\
+  
+**50,000 foot view:** 
 Why do we need databases?
 
-**Trunk:**\
+**Bird's eye view:** 
 General overview of different types of databases, and a list of widely-used databases of that type.
 
-**Branch:**\
+**On the ground:** 
 Concerte deep-dive into each type of database, with examples.
-
-**Leaves:**\
-Build Your Own Leaves
 
 ----
 ****
 
-## Roots
+## 50,000 foot view
 
 Databases are used to store and access data. What type of data, you ask? 
 Everything from your Facebook photos and posts to YouTube videos to your financial data, to amazon inventory and orders. 
@@ -48,7 +46,7 @@ We need efficient databases and efficient design of datastore to make accessing 
 ----
 ****
 
-## Trunk
+## Bird's eye view
 
 At the highest level, there’s just two types - **Sql** and **NoSql**. So let’s get to it!
 
@@ -117,7 +115,7 @@ This is also right up there with Graph Database where it’s not all that popula
 ----
 ****
 
-## Branches
+## On the ground
 
 ### Key Value Store
 
@@ -236,6 +234,6 @@ Alright, starting to make sense. So what’s the *story* behind GraphQL? How did
 
 Neo4j seems to be the popular database that has “native” graph storage. I guess that means that the database itself was built to be optimal for querying with the graphQL syntax. 
 
-If you’re interested in any of these in particular, it can’t hurt to build your own leaves (and honestly fill out the rest of this branch) on your own!
+If you’re interested in any of these in particular, it can’t hurt to get in the trenches and learn more on your own!
 
 **Customers of Neo4j:** Lyft, airbnb, adobe, caterpillar, volvo 
